@@ -11,6 +11,8 @@ from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.linear_model import lasso_path
 from sklearn.preprocessing import StandardScaler
 import statsmodels.api as sm
+import os
+from dotenv import load_dotenv
 
 warnings.filterwarnings('ignore')
 
@@ -18,7 +20,9 @@ PERSONA = sys.argv[1] if len(sys.argv) > 1 else "bull"
 API_BATCH_SIZE = 50
 CHECKPOINT_EVERY = 500
 
-client = genai.Client(api_key="AIzaSyARCOQdJ5grxpIuHf_sLr5zd5-Ma3jyE-k")
+load_dotenv()
+gemini_key = os.environ.get("GEMINI_API_KEY")
+client = genai.Client(api_key=gemini_key)
 print(f"API Connected! Persona: {PERSONA}", flush=True)
 
 # System instructions per persona

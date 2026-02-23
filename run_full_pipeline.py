@@ -11,10 +11,14 @@ from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.linear_model import lasso_path
 from sklearn.preprocessing import StandardScaler
 import statsmodels.api as sm
+import os
+from dotenv import load_dotenv
 
 warnings.filterwarnings('ignore')
 
-client = genai.Client(api_key="AIzaSyARCOQdJ5grxpIuHf_sLr5zd5-Ma3jyE-k")
+load_dotenv()
+gemini_key = os.environ.get("GEMINI_API_KEY")
+client = genai.Client(api_key=gemini_key)
 print("API Connected!", flush=True)
 
 API_BATCH_SIZE = 50

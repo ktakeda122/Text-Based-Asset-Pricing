@@ -5,10 +5,14 @@ import time
 import warnings
 from google import genai
 from google.genai import types
+import os
+from dotenv import load_dotenv
 
 warnings.filterwarnings('ignore')
 
-client = genai.Client(api_key="AIzaSyARCOQdJ5grxpIuHf_sLr5zd5-Ma3jyE-k")
+load_dotenv()
+gemini_key = os.environ.get("GEMINI_API_KEY")
+client = genai.Client(api_key=gemini_key)
 print("API Connected!", flush=True)
 
 # ── Select 10 articles from late 2007 to mid-2008 (GFC period) ───────────────
