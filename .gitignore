@@ -1,0 +1,16 @@
+# security
+keys.txt
+.env
+
+# data
+*.parquet
+*.pq
+*.csv
+
+# Python・Jupyter cash
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+# claude
+.claude/
